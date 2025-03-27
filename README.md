@@ -17,3 +17,6 @@ Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentis
 
 ## TP1: Découverte d'OpenAI Gym
 **Objectif** : Prise en main des environnements Gym avec CartPole-v1
+```python
+import gymnasium as gym
+env = gym.make("CartPole-v1", render_mode="human")
