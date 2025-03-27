@@ -15,8 +15,30 @@ Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentis
 - [Résultats](#-résultats)
 - [Contribution](#-contribution)
 
-## TP1: Découverte d'OpenAI Gym
-**Objectif** : Prise en main des environnements Gym avec CartPole-v1
-```python
-import gymnasium as gym
-env = gym.make("CartPole-v1", render_mode="human")
+## 🏗️ TP1: Découverte d'OpenAI Gym
+
+### 🎯 Objectif
+Prendre en main les environnements Gym et les concepts de base du Reinforcement Learning (RL).
+
+### 📖 Définition et Rôle d'OpenAI Gym
+**OpenAI Gym** est une boîte à outils standardisée pour le développement et la comparaison d'algorithmes d'apprentissage par renforcement. Son rôle principal comprend :
+
+1. **Standardisation** :
+   - Fournit une interface commune pour tous les environnements (méthodes `reset()`, `step()`)
+   - Permet des comparaisons équitables entre algorithmes
+
+2. **Bibliothèque d'environnements** :
+   - Environnements classiques (CartPole, MountainCar)
+   - Environnements Atari (Jeux vidéo)
+   - Environnements 2D/3D de physique (MuJoCo)
+
+3. **Outils d'évaluation** :
+   - Métriques standardisées (récompense cumulée, durée des épisodes)
+   - Capacité d'enregistrement des résultats
+
+4. **Flexibilité** :
+   - Prise en charge de la création d'environnements personnalisés
+   - Compatibilité avec PyTorch et TensorFlow
+
+### 🛠 Fonctionnement de Base
+Le flux typique d'interaction avec Gym suit ce schéma :
