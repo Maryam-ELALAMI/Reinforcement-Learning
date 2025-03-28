@@ -302,5 +302,5 @@ pip install --upgrade gymnasium pygame numpy
 ```
 ```bash
 # Cloner le dépôt
-git clone https://github.com/MaryamELALAMI/reinforcement-learning.git
+git clone https://github.com/Maryam-ELALAMI/reinforcement-learning.git
 cd reinforcement-learning
