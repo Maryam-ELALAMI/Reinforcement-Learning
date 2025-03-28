@@ -1,7 +1,8 @@
 # Reinforcement Learning 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+
+Le Reinforcement Learning (Apprentissage par Renforcement) est une branche du Machine Learning où un agent apprend à interagir avec un environnement pour maximiser une récompense cumulée. Ce dépôt explore les concepts clés à travers des TP pratiques utilisant OpenAI Gym, Q-Learning, SARSA et PPO.
 
 Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentissage par renforcement, réalisés dans le cadre du cours à l'École Nationale de l'Intelligence Artificielle et du Digital.
 
@@ -10,12 +11,10 @@ Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentis
 - [TP2: Algorithmes de Base (Q-Learning/SARSA)](#tp2-algorithmes-de-base)
 - [TP3: Optimisation des Feux de Circulation](#tp3-optimisation-des-feux-de-circulation)
 - [TP4: PPO Avancé](#tp4-ppo-avancé)
-- [Installation](#-installation)
+- [Guide d'Installation](#-installation)
 - [Utilisation](#-utilisation)
-- [Résultats](#-résultats)
-- [Contribution](#-contribution)
 
-## 🏗️ TP1: Découverte d'OpenAI Gym
+## TP1: Découverte d'OpenAI Gym
 
 ### 🎯 Objectif
 Prendre en main les environnements Gym et les concepts de base du Reinforcement Learning (RL).
@@ -40,7 +39,7 @@ Prendre en main les environnements Gym et les concepts de base du Reinforcement 
    - Prise en charge de la création d'environnements personnalisés
    - Compatibilité avec PyTorch et TensorFlow
 
-### 🛠 Fonctionnement de Base
+### Fonctionnement de Base
 Le flux typique d'interaction avec Gym suit ce schéma :
 
 ```mermaid
@@ -51,7 +50,7 @@ stateDiagram-v2
     Boucle --> Boucle: step(action)
 ```
 
-## 🚀 Implémentation Gymnasium - CartPole
+## Implémentation Gymnasium - CartPole
 
 ### 1. Importation et Configuration
 
@@ -117,7 +116,7 @@ for episode in range(3):  # 3 épisodes de démonstration
 env.close()
 ````
 
-## 🤖 TP2: Algorithmes de Base (Q-Learning & SARSA)
+## TP2: Algorithmes de Base (Q-Learning/SARSA)
 
 ### 🎯 Objectifs
 1. Implémenter les algorithmes fondamentaux du RL tabulaire
@@ -151,7 +150,7 @@ Pour chaque épisode :
 
 ```
 
-## 🧠 Implémentation Q-Learning
+## Implémentation Q-Learning
 
 ### 1. Initialisation
 ```python
@@ -190,7 +189,7 @@ for episode in range(episodes):
         
         state = next_state
 ```
-## 🧠 Implémentation SARSA
+## Implémentation SARSA
 
 ### 1. Initialisation (identique à Q-learning)
 ### 2. Boucle d'Apprentissage
@@ -222,7 +221,7 @@ for episode in range(episodes):
         state, action = next_state, next_action
 ```
 
-## 🚦 TP3 - Optimisation des Feux de Circulation par Reinforcement Learning
+## TP3 - Optimisation des Feux de Circulation par Reinforcement Learning
 
 ### 📚 Objectifs
 - **Comprendre** un environnement de contrôle urbain complexe
@@ -238,7 +237,7 @@ class TrafficEnvironment:
         self.current_light = 0  # 0: Vert NS, 1: Vert EW
 ```
 
-### 🔢 Caractéristiques Techniques
+### Caractéristiques Techniques
 
 | Composant       | Type         | Valeurs                     | Description                     |
 |-----------------|--------------|-----------------------------|---------------------------------|
@@ -246,7 +245,7 @@ class TrafficEnvironment:
 | **Action**      | `Discrete(2)`| 0 ou 1                      | 0: Maintenir les feux actuels, 1: Changer les feux |
 | **Récompense**  | `float`      | ≥0                         | Nombre de véhicules ayant traversé l'intersection |
 
-### 🔄 Dynamique du Système
+### Dynamique du Système
 
 1. **Passage des véhicules** :
    - Jusqu'à 4 véhicules peuvent passer par cycle sur la voie verte
@@ -255,3 +254,54 @@ class TrafficEnvironment:
 2. **Arrivée de nouveaux véhicules** :
    ```python
    new_cars = np.random.randint(0, 3, size=4)  # Ajoute 0-2 véhicules par direction
+
+# Comparaison des performances de Q-Learning et SARSA
+
+## Résultats des algorithmes
+
+L'analyse comparative entre Q-Learning et SARSA révèle les performances suivantes :
+
+| Algorithme   | Récompense Cumulative Moyenne |
+|--------------|-------------------------------|
+| Q-Learning   | 327.77                        |
+| SARSA        | 327.06                        |
+
+## Visualisation des performances
+
+![Comparaison Q-Learning vs SARSA](visualisation.png)
+
+### Observations :
+- **Q-Learning** atteint une récompense cumulative plus élevée (327.77) que **SARSA** (327.06 ) après 1000 épisodes.
+- Les deux algorithmes montrent une progression significative au cours des 200 premiers épisodes.
+
+# TP4 - Proximal Policy Optimization (PPO)
+
+## Objectifs
+- Implémenter l'algorithme PPO pour optimiser une politique d'agent RL.
+- Évaluer les performances sur un environnement spécifique avec des épisodes définis.
+- Analyser l'impact du clipping et des avantages (_advantages_) sur la stabilité de l'apprentissage.
+
+---
+
+## Théorie Clé : Fonction de Perte PPO
+La fonction de perte de PPO inclut un terme de clipping pour éviter des mises à jour trop grandes :  
+
+
+$$L(\theta) = \mathbb{E}_t \left[ \min \left( r_t(\theta) A_t, \text{clip}(r_t(\theta), 1 - \epsilon, 1 + \epsilon) A_t \right) \right]$$
+
+
+Où :
+- $$r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_\text{old}}(a_t|s_t)}$$ (ratio des politiques)
+- $$A_t$$ : Estimation de l'avantage
+- $$\epsilon$$ : Paramètre de clipping (ex: 0.2)
+
+## 🛠 Guide d'Installation
+
+1. **Environnements de base** :
+```bash
+pip install --upgrade gymnasium pygame numpy
+```
+```bash
+# Cloner le dépôt
+git clone https://github.com/MaryamELALAMI/reinforcement-learning.git
+cd reinforcement-learning
