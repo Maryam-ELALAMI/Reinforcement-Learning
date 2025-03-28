@@ -12,7 +12,6 @@ Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentis
 - [TP3: Optimisation des Feux de Circulation](#tp3-optimisation-des-feux-de-circulation)
 - [TP4: PPO Avancé](#tp4-ppo-avancé)
 - [Guide d'Installation](#-installation)
-- [Utilisation](#-utilisation)
 
 ## TP1: Découverte d'OpenAI Gym
 
