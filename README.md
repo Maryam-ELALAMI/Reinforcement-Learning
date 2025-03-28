@@ -8,10 +8,10 @@ Ce dépôt contient les travaux pratiques de Machine Learning II sur l'apprentis
 
 ## 📋 Table des matières
 - [TP1: Découverte d'OpenAI Gym](#tp1-découverte-dopenai-gym)
-- [TP2: Algorithmes de Base (Q-Learning/SARSA)](#tp2-algorithmes-de-base)
-- [TP3: Optimisation des Feux de Circulation](#tp3-optimisation-des-feux-de-circulation)
-- [TP4: PPO Avancé](#tp4-ppo-avancé)
-- [Guide d'Installation](#-installation)
+- [TP2: Algorithmes de Base (Q-Learning/SARSA)](#tp2-algorithmes-de-base-q-learningsarsa)
+- [TP3 - Optimisation des Feux de Circulation par Reinforcement Learning](#tp3---optimisation-des-feux-de-circulation-par-reinforcement-learning)
+- [TP4 - Proximal Policy Optimization (PPO)](#tp4---proximal-policy-optimization-ppo)
+- [Guide d'installation](#guide-dinstallation)
 
 ## TP1: Découverte d'OpenAI Gym
 
@@ -294,7 +294,7 @@ Où :
 - $$A_t$$ : Estimation de l'avantage
 - $$\epsilon$$ : Paramètre de clipping (ex: 0.2)
 
-## 🛠 Guide d'Installation
+## Guide d'installation
 
 1. **Environnements de base** :
 ```bash
