@@ -54,7 +54,7 @@ stateDiagram-v2
 ### 1. Importation et Configuration
 
 
-**CartPole-v1**: Environnement classique de contrôle
+**CartPole-v1**: simule un pendule inversé : une tige fixée sur un chariot se déplaçant à droite et à gauche.
 **render_mode="human"** : Active la visualisation
 
 
