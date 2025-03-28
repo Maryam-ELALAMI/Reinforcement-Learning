@@ -53,10 +53,6 @@ stateDiagram-v2
 
 ### 1. Importation et Configuration
 
-```python
-import gymnasium as gym
-env = gym.make("CartPole-v1", render_mode="human")
-```
 
 **CartPole-v1**: Environnement classique de contrôle
 **render_mode="human"** : Active la visualisation
