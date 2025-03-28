@@ -115,9 +115,8 @@ for episode in range(3):  # 3 épisodes de démonstration
 env.close()
 ````
 
-### 🎮 Aperçu Rapide
 
-![Regarder la vidéo](1.mp4)
+[![Regarder la vidéo](22.png)](1.mp4)
 
 
 ## TP2: Algorithmes de Base (Q-Learning/SARSA)
