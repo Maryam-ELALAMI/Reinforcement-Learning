@@ -116,7 +116,9 @@ env.close()
 ````
 
 
-[![Regarder la vidéo](22.png)](1.mp4)
+[![Regarder la vidéo](22.png)](1.mp4)  
+
+👉 *Cliquez sur l'image ci-dessus pour voir la vidéo !*
 
 
 ## TP2: Algorithmes de Base (Q-Learning/SARSA)
